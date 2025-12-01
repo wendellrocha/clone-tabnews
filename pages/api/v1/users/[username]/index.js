@@ -10,6 +10,6 @@ export default router.handler(controller.errorHandlers);
 
 async function getHandler(request, response) {
   const username = request.query.username;
-  const result = await user.findByUsername(username);
+  const result = await user.findOneByUsername(username);
   return response.status(200).json(result);
 }
