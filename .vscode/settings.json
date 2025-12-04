@@ -1,4 +1,12 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+    "package.json": ".eslint*, eslint.config.*, prettier*, tsconfig*, vite*, pnpm-*, bun.lockb, nest*, package-lock*, .prettierrc*, .editorconfig, .npmrc, .yarnrc*, babel.*, firebase*, Gemfile*, metro.*, jest.*, react-*, yarn.*, yalc.*, .watchman*, .babel*",
+    ".env.local": ".env*",
+    ".env": ".env*",
+    ".gitignore": ".meteor*, .prettierignore*",
+    "*settings.json": "prod-settings.json"
+  }
 }
