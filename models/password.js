@@ -1,7 +1,7 @@
 import bcryptjs from "bcryptjs";
 
 async function hash(password) {
-  const rounds = parseInt(process.env.PASSWORD_HASH_ROUNDS, 10);
+  const rounds = parseInt(process.env.PASSWORD_SALT_ROUNDS, 10);
   return await bcryptjs.hash(password, rounds);
 }
 
