@@ -8,5 +8,9 @@
     ".env": ".env*",
     ".gitignore": ".meteor*, .prettierignore*",
     "*settings.json": "prod-settings.json"
+  },
+   "sonarlint.connectedMode.project": {
+    "connectionId": "https-sonar-wendellrocha-dev-br",
+    "projectKey": "wendellrocha_clone-tabnews_3e6c1c91-2f62-47ec-8926-c23facc5012b"
   }
 }
