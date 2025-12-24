@@ -2,6 +2,7 @@ import { faker } from "@faker-js/faker/.";
 import retry from "async-retry";
 import database from "infra/database";
 import migrator from "models/migrator";
+import session from "models/session";
 import user from "models/user";
 
 async function waitForAllService() {
@@ -33,10 +34,15 @@ async function runPendingMigrations() {
 async function createUser(userObject) {
   return await user.create({
     username:
-      userObject?.username || faker.internet.username().replace(/[_.-]/g, ""),
+      userObject?.username ||
+      faker.internet.username().replaceAll(/[_.-]/g, ""),
     email: userObject?.email || faker.internet.email(),
     password: userObject?.password || faker.internet.password(),
   });
+}
+
+async function createSession(userId) {
+  return await session.create(userId);
 }
 
 const orchestrator = {
@@ -44,6 +50,7 @@ const orchestrator = {
   clearDatabase,
   runPendingMigrations,
   createUser,
+  createSession,
 };
 
 export default orchestrator;
