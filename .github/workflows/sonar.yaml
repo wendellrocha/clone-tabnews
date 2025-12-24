@@ -1,0 +1,19 @@
+name: SonarQube
+permissions:
+  contents: read
+
+on: pull_request
+
+jobs:
+  sonar:
+    name: Run a SonarQube analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

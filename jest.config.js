@@ -8,6 +8,7 @@ const createJestConfig = nextJest({
 const jestConfig = createJestConfig({
   moduleDirectories: ["node_modules", "<rootDir>"],
   testTimeout: 60000,
+  reporters: ["default", "jest-sonar"],
 });
 
 module.exports = jestConfig;

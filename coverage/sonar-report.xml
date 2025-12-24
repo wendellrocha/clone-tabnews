@@ -1,0 +1,8 @@
+<testExecutions version="1">
+<file path="tests/integration/api/v1/user/get.test.js">
+<testCase name="GET /api/v1/users/[username] Default user With valid session" duration="222" />
+<testCase name="GET /api/v1/users/[username] Default user With barely expired session" duration="209" />
+<testCase name="GET /api/v1/users/[username] Default user With nonexistent session" duration="42" />
+<testCase name="GET /api/v1/users/[username] Default user With expired session" duration="169" />
+</file>
+</testExecutions>
