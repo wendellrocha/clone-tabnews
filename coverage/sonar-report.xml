@@ -1,39 +1,8 @@
 <testExecutions version="1">
-<file path="tests/integration/api/v1/users/[username]/patch.test.js">
-<testCase name="PATCH /api/v1/users/[username] Anonymous user With nonexistent username" duration="387" />
-<testCase name="PATCH /api/v1/users/[username] Anonymous user With duplicated &apos;username&apos;" duration="262" />
-<testCase name="PATCH /api/v1/users/[username] Anonymous user With duplicated &apos;email&apos;" duration="262" />
-<testCase name="PATCH /api/v1/users/[username] Anonymous user With unique &apos;username&apos;" duration="127" />
-<testCase name="PATCH /api/v1/users/[username] Anonymous user With unique &apos;email&apos;" duration="147" />
-<testCase name="PATCH /api/v1/users/[username] Anonymous user With new &apos;password&apos;" duration="255" />
-</file>
-<file path="tests/integration/api/v1/sessions/post.test.js">
-<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; but corrent &apos;password&apos;" duration="220" />
-<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; but incorrent &apos;password&apos;" duration="58" />
-<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; and incorrent &apos;password&apos;" duration="72" />
-<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; and corrent &apos;password&apos;" duration="96" />
-</file>
-<file path="tests/integration/api/v1/migrations/get.test.js">
-<testCase name="GET /api/v1/migrations Anonymous user Retrieving pending migrations" duration="111" />
-</file>
-<file path="tests/integration/api/v1/users/post.test.js">
-<testCase name="POST /api/v1/users Anonymous user With unique and valid data" duration="67" />
-<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;email&apos;" duration="59" />
-<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;username&apos;" duration="47" />
-</file>
-<file path="tests/integration/api/v1/migrations/post.test.js">
-<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the first time" duration="47" />
-<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the second time" duration="32" />
-</file>
-<file path="tests/integration/api/v1/users/[username]/get.test.js">
-<testCase name="GET /api/v1/users/[username] Anonymous user With exact case match" duration="80" />
-<testCase name="GET /api/v1/users/[username] Anonymous user With case mismatch" duration="82" />
-<testCase name="GET /api/v1/users/[username] Anonymous user With nonexistent username" duration="15" />
-</file>
-<file path="tests/integration/api/v1/status/post.test.js">
-<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="4" />
-</file>
-<file path="tests/integration/api/v1/status/get.test.js">
-<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="42" />
+<file path="tests/integration/api/v1/user/get.test.js">
+<testCase name="GET /api/v1/users/[username] Default user With valid session" duration="222" />
+<testCase name="GET /api/v1/users/[username] Default user With barely expired session" duration="209" />
+<testCase name="GET /api/v1/users/[username] Default user With nonexistent session" duration="42" />
+<testCase name="GET /api/v1/users/[username] Default user With expired session" duration="169" />
 </file>
 </testExecutions>
