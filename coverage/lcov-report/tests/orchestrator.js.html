@@ -167,7 +167,7 @@ import database from "infra/database";
 import migrator from "models/migrator";
 import user from "models/user";
 &nbsp;
-async function waitForAllService() {
+async function waitForAllServices() {
   await waitForWebServer();
 &nbsp;
   async function waitForWebServer() {
@@ -203,7 +203,7 @@ async function createUser(userObject) {
 }
 &nbsp;
 const orchestrator = {
-  waitForAllService,
+  waitForAllServices,
   clearDatabase,
   runPendingMigrations,
   createUser,
