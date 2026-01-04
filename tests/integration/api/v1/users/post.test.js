@@ -4,7 +4,7 @@ import user from "models/user";
 import password from "models/password";
 
 beforeAll(async () => {
-  await orchestrator.waitForAllService();
+  await orchestrator.waitForAllServices();
   await orchestrator.clearDatabase();
   await orchestrator.runPendingMigrations();
 });
