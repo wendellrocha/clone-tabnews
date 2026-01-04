@@ -1,8 +1,50 @@
 <testExecutions version="1">
+<file path="tests/integration/api/v1/sessions/delete.test.js">
+<testCase name="DELETE /api/v1/sessions Default user With nonexistent session" duration="373" />
+<testCase name="DELETE /api/v1/sessions Default user With expired session" duration="84" />
+<testCase name="DELETE /api/v1/sessions Default user With valid session" duration="239" />
+</file>
+<file path="tests/integration/api/v1/users/[username]/patch.test.js">
+<testCase name="PATCH /api/v1/users/[username] Anonymous user With nonexistent username" duration="158" />
+<testCase name="PATCH /api/v1/users/[username] Anonymous user With duplicated &apos;username&apos;" duration="108" />
+<testCase name="PATCH /api/v1/users/[username] Anonymous user With duplicated &apos;email&apos;" duration="94" />
+<testCase name="PATCH /api/v1/users/[username] Anonymous user With unique &apos;username&apos;" duration="90" />
+<testCase name="PATCH /api/v1/users/[username] Anonymous user With unique &apos;email&apos;" duration="71" />
+<testCase name="PATCH /api/v1/users/[username] Anonymous user With new &apos;password&apos;" duration="161" />
+</file>
+<file path="tests/integration/api/v1/sessions/post.test.js">
+<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; but corrent &apos;password&apos;" duration="59" />
+<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; but incorrent &apos;password&apos;" duration="47" />
+<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; and incorrent &apos;password&apos;" duration="46" />
+<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; and corrent &apos;password&apos;" duration="56" />
+</file>
 <file path="tests/integration/api/v1/user/get.test.js">
-<testCase name="GET /api/v1/users/[username] Default user With valid session" duration="222" />
-<testCase name="GET /api/v1/users/[username] Default user With barely expired session" duration="209" />
-<testCase name="GET /api/v1/users/[username] Default user With nonexistent session" duration="42" />
-<testCase name="GET /api/v1/users/[username] Default user With expired session" duration="169" />
+<testCase name="GET /api/v1/users/[username] Default user With valid session" duration="101" />
+<testCase name="GET /api/v1/users/[username] Default user With barely expired session" duration="141" />
+<testCase name="GET /api/v1/users/[username] Default user With nonexistent session" duration="292" />
+<testCase name="GET /api/v1/users/[username] Default user With expired session" duration="131" />
+</file>
+<file path="tests/integration/api/v1/users/post.test.js">
+<testCase name="POST /api/v1/users Anonymous user With unique and valid data" duration="65" />
+<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;email&apos;" duration="89" />
+<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;username&apos;" duration="71" />
+</file>
+<file path="tests/integration/api/v1/users/[username]/get.test.js">
+<testCase name="GET /api/v1/users/[username] Anonymous user With exact case match" duration="57" />
+<testCase name="GET /api/v1/users/[username] Anonymous user With case mismatch" duration="43" />
+<testCase name="GET /api/v1/users/[username] Anonymous user With nonexistent username" duration="18" />
+</file>
+<file path="tests/integration/api/v1/migrations/post.test.js">
+<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the first time" duration="283" />
+<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the second time" duration="24" />
+</file>
+<file path="tests/integration/api/v1/migrations/get.test.js">
+<testCase name="GET /api/v1/migrations Anonymous user Retrieving pending migrations" duration="26" />
+</file>
+<file path="tests/integration/api/v1/status/get.test.js">
+<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="31" />
+</file>
+<file path="tests/integration/api/v1/status/post.test.js">
+<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="3" />
 </file>
 </testExecutions>
