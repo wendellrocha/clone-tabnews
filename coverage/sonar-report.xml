@@ -1,5 +1,9 @@
 <testExecutions version="1">
-<file path="tests/integration/infra/email.test.js">
-<testCase name="infra/email.js send()" duration="131" />
+<file path="tests/integration/_use-cases/registration-flow.test.js">
+<testCase name="Use case: Registration Flow (all successful Create user account" duration="219" />
+<testCase name="Use case: Registration Flow (all successful Receive activation email" duration="42" />
+<testCase name="Use case: Registration Flow (all successful Activate account" duration="0" />
+<testCase name="Use case: Registration Flow (all successful Login" duration="1" />
+<testCase name="Use case: Registration Flow (all successful Get user information" duration="0" />
 </file>
 </testExecutions>
