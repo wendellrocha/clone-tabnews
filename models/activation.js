@@ -1,6 +1,7 @@
 import email from "infra/email";
 import database from "infra/database";
 import webserver from "infra/webserver";
+import { NotFoundError } from "infra/errors";
 
 const EXPIRATION_IN_MILLISECONDS = 60 * 15 * 1000; // 15 minutes
 
@@ -26,14 +27,14 @@ async function create(userId) {
   }
 }
 
-async function sendEmailToUser(user, activation) {
+async function sendEmailToUser(user, activationToken) {
   await email.send({
-    from: "TabNews <contato@gmail.com>",
+    from: "TabNews <contato@tabnews.wendellrocha.dev.br>",
     to: user.email,
     subject: "Ative seu cadastro!",
     text: `${user.username}, clique no link abaixo para ativar seu cadastro:
     
-${webserver.origin}/cadastro/ativar/${activation.id}
+${webserver.origin}/cadastro/ativar/${activationToken.id}
 
 Atenciosamente,
 Equipe TabNews
@@ -41,23 +42,35 @@ Equipe TabNews
   });
 }
 
-async function findOneByUserId(userId) {
-  const newToken = await runSelectQuery(userId);
-  return newToken;
+async function findOneValidById(tokenId) {
+  const activationTokenObject = await runSelectQuery(tokenId);
+  return activationTokenObject;
 
-  async function runSelectQuery(userId) {
+  async function runSelectQuery(tokenId) {
     const results = await database.query({
       text: `
-        SELECT
-          *
-        FROM
-          user_activation_tokens
-        WHERE
-          user_id = $1
-        LIMIT 1
-      ;`,
-      values: [userId],
+      SELECT
+        *
+      FROM
+        user_activation_tokens
+      WHERE
+        id = $1
+        AND
+          expires_at > NOW()
+        AND
+          used_at IS NULL
+      LIMIT 1
+    ;`,
+      values: [tokenId],
     });
+
+    if (results.rowCount === 0) {
+      throw new NotFoundError({
+        message:
+          "O token de ativação utilizado não foi encontrado no sistema ou expirou.",
+        action: "Faça um novo cadastro.",
+      });
+    }
 
     return results.rows.at(0);
   }
@@ -66,7 +79,7 @@ async function findOneByUserId(userId) {
 const activation = {
   create,
   sendEmailToUser,
-  findOneByUserId,
+  findOneValidById,
 };
 
 export default activation;

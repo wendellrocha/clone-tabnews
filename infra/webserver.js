@@ -1,6 +1,6 @@
 function getOrigin() {
   if (["development", "test"].includes(process.env.NODE_ENV)) {
-    return `http://localhost:${process.env.PORT}`;
+    return "http://localhost:3000";
   }
 
   if (process.env.VERCEL_ENV === "preview") {
