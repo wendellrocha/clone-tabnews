@@ -1,9 +1,9 @@
 <testExecutions version="1">
 <file path="tests/integration/_use-cases/registration-flow.test.js">
-<testCase name="Use case: Registration Flow (all successful) Create user account" duration="150" />
-<testCase name="Use case: Registration Flow (all successful) Receive activation email" duration="19" />
-<testCase name="Use case: Registration Flow (all successful) Activate account" duration="0" />
+<testCase name="Use case: Registration Flow (all successful) Create user account" duration="180" />
+<testCase name="Use case: Registration Flow (all successful) Receive activation email" duration="26" />
+<testCase name="Use case: Registration Flow (all successful) Activate account" duration="56" />
 <testCase name="Use case: Registration Flow (all successful) Login" duration="0" />
-<testCase name="Use case: Registration Flow (all successful) Get user information" duration="1" />
+<testCase name="Use case: Registration Flow (all successful) Get user information" duration="0" />
 </file>
 </testExecutions>
