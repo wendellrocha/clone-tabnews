@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker/.";
 import retry from "async-retry";
 import database from "infra/database";
+import activation from "models/activation";
 import migrator from "models/migrator";
 import session from "models/session";
 import user from "models/user";
@@ -62,6 +63,10 @@ async function createSession(userId) {
   return await session.create(userId);
 }
 
+async function activateUser(userId) {
+  return await activation.activateUserByUserId(userId);
+}
+
 async function deleteAllEmails() {
   await fetch(`${emailHttpUrl}/messages`, {
     method: "DELETE",
@@ -104,6 +109,7 @@ const orchestrator = {
   runPendingMigrations,
   createUser,
   createSession,
+  activateUser,
   deleteAllEmails,
   getLastEmail,
   extractUUID,
