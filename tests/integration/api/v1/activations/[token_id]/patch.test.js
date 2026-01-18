@@ -139,6 +139,7 @@ describe("PATCH /api/v1/activations/[token_id]", () => {
       expect(activatedUset.features).toEqual([
         "create:session",
         "read:session",
+        "update:user",
       ]);
     });
 
