@@ -1,9 +1,5 @@
 function can(user, feature) {
-  if (user.features.includes(feature)) {
-    return true;
-  }
-
-  return false;
+  return user.features.includes(feature);
 }
 
 const authorization = {

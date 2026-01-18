@@ -23,7 +23,7 @@ async function getHandler(request, response) {
 
   if (!authorization.can(userFound, "read:session")) {
     throw new ForbiddenError({
-      message: "Você não possui permissão para fazer login.",
+      message: "Você não possui permissão para realizar esta ação.",
       action: "Contate o suporte caso você acredite que isto seja um erro.",
     });
   }
