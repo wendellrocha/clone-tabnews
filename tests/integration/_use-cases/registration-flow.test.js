@@ -14,6 +14,7 @@ beforeAll(async () => {
 describe("Use case: Registration Flow (all successful)", () => {
   let createUserResponseBody;
   let activationTokenId;
+  let sessionToken;
 
   test("Create user account", async () => {
     const createUserResponse = await fetch(
@@ -106,7 +107,22 @@ describe("Use case: Registration Flow (all successful)", () => {
     const createSessionResponseBody = await response.json();
 
     expect(createSessionResponseBody.user_id).toBe(createUserResponseBody.id);
+    sessionToken = createSessionResponseBody.token;
   });
 
-  test("Get user information", async () => {});
+  test("Get user information", async () => {
+    const response = await fetch("http://localhost:3000/api/v1/user", {
+      method: "GET",
+      headers: {
+        Cookie: `session_id=${sessionToken}`,
+      },
+    });
+
+    expect(response.status).toBe(200);
+
+    const responseBody = await response.json();
+    expect(responseBody.id).toBe(createUserResponseBody.id);
+    expect(responseBody.username).toBe(createUserResponseBody.username);
+    expect(responseBody.email).toBe(createUserResponseBody.email);
+  });
 });
