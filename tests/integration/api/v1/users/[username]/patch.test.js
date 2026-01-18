@@ -102,7 +102,7 @@ describe("PATCH /api/v1/users/[username]", () => {
       });
     });
 
-    test("With `user2` targeting `usera`", async () => {
+    test("With `userB` targeting `userA`", async () => {
       await orchestrator.createUser({
         username: "userA",
       });
@@ -327,6 +327,54 @@ describe("PATCH /api/v1/users/[username]", () => {
 
       expect(incorrentPasswordMatch).not.toBe(true);
       expect(correntPasswordMatch).toBe(true);
+    });
+  });
+
+  describe("Priviliged user", () => {
+    test("With `upate:user:others` targeting `defaultUser`", async () => {
+      const priviligedUser = await orchestrator.createUser();
+      const activatedUser = await orchestrator.activateUser(priviligedUser.id);
+      await orchestrator.addFeaturesToUser(priviligedUser, [
+        "update:user:others",
+      ]);
+
+      const sessionObject = await orchestrator.createSession(activatedUser.id);
+
+      const defaultUser = await orchestrator.createUser();
+
+      const response = await fetch(
+        `http://localhost:3000/api/v1/users/${defaultUser.username}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: `session_id=${sessionObject.token}`,
+          },
+          body: JSON.stringify({
+            username: "AlteradoPorPrivilegiado",
+          }),
+        },
+      );
+
+      const responseBody = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(responseBody).toEqual({
+        id: defaultUser.id,
+        username: "AlteradoPorPrivilegiado",
+        email: defaultUser.email,
+        password: responseBody.password,
+        features: ["read:activation_token"],
+        created_at: defaultUser.created_at.toISOString(),
+        updated_at: responseBody.updated_at,
+      });
+
+      expect(uuidVersion(responseBody.id)).toBe(4);
+      expect(Date.parse(responseBody.created_at)).not.toBeNaN();
+      expect(Date.parse(responseBody.updated_at)).not.toBeNaN();
+      expect(Date.parse(responseBody.updated_at)).toBeGreaterThan(
+        Date.parse(responseBody.created_at),
+      );
     });
   });
 });
