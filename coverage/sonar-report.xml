@@ -1,70 +1,71 @@
 <testExecutions version="1">
-<file path="tests/integration/api/v1/users/[username]/patch.test.js">
-<testCase name="PATCH /api/v1/users/[username] Anonymous user With unique &apos;username&apos;" duration="71" />
-<testCase name="PATCH /api/v1/users/[username] Default user With nonexistent username" duration="200" />
-<testCase name="PATCH /api/v1/users/[username] Default user With duplicated &apos;username&apos;" duration="157" />
-<testCase name="PATCH /api/v1/users/[username] Default user With duplicated &apos;email&apos;" duration="152" />
-<testCase name="PATCH /api/v1/users/[username] Default user With unique &apos;username&apos;" duration="133" />
-<testCase name="PATCH /api/v1/users/[username] Default user With unique &apos;email&apos;" duration="132" />
-<testCase name="PATCH /api/v1/users/[username] Default user With new &apos;password&apos;" duration="242" />
+<file path="tests/integration/api/v1/user/get.test.js">
+<testCase name="GET /api/v1/user Default user With valid session" duration="293" />
+<testCase name="GET /api/v1/user Default user With barely expired session" duration="198" />
+<testCase name="GET /api/v1/user Default user With nonexistent session" duration="17" />
+<testCase name="GET /api/v1/user Default user With expired session" duration="67" />
 </file>
 <file path="tests/integration/api/v1/activations/[token_id]/patch.test.js">
-<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With nonexistent token" duration="14" />
-<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With expired token" duration="71" />
-<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With already used token" duration="105" />
-<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With valid token" duration="98" />
-<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With valid token but already activated user" duration="85" />
-<testCase name="PATCH /api/v1/activations/[token_id] Default user With valid token, but already logged in user" duration="154" />
-</file>
-<file path="tests/integration/api/v1/user/get.test.js">
-<testCase name="GET /api/v1/user Default user With valid session" duration="148" />
-<testCase name="GET /api/v1/user Default user With barely expired session" duration="133" />
-<testCase name="GET /api/v1/user Default user With nonexistent session" duration="13" />
-<testCase name="GET /api/v1/user Default user With expired session" duration="60" />
+<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With nonexistent token" duration="135" />
+<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With expired token" duration="73" />
+<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With already used token" duration="106" />
+<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With valid token" duration="162" />
+<testCase name="PATCH /api/v1/activations/[token_id] Anonymous user With valid token but already activated user" duration="128" />
+<testCase name="PATCH /api/v1/activations/[token_id] Default user With valid token, but already logged in user" duration="167" />
 </file>
 <file path="tests/integration/api/v1/users/post.test.js">
-<testCase name="POST /api/v1/users Anonymous user With unique and valid data" duration="115" />
-<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;email&apos;" duration="115" />
-<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;username&apos;" duration="122" />
-<testCase name="POST /api/v1/users Anonymous user Default user With unique and valid data" duration="98" />
-</file>
-<file path="tests/integration/_use-cases/registration-flow.test.js">
-<testCase name="Use case: Registration Flow (all successful) Create user account" duration="88" />
-<testCase name="Use case: Registration Flow (all successful) Receive activation email" duration="18" />
-<testCase name="Use case: Registration Flow (all successful) Activate account" duration="60" />
-<testCase name="Use case: Registration Flow (all successful) Login" duration="23" />
-<testCase name="Use case: Registration Flow (all successful) Get user information" duration="52" />
-</file>
-<file path="tests/integration/api/v1/sessions/post.test.js">
-<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; but corrent &apos;password&apos;" duration="65" />
-<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; but incorrent &apos;password&apos;" duration="48" />
-<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; and incorrent &apos;password&apos;" duration="50" />
-<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; and corrent &apos;password&apos;" duration="80" />
-</file>
-<file path="tests/integration/api/v1/users/[username]/get.test.js">
-<testCase name="GET /api/v1/users/[username] Anonymous user With exact case match" duration="60" />
-<testCase name="GET /api/v1/users/[username] Anonymous user With case mismatch" duration="47" />
-<testCase name="GET /api/v1/users/[username] Anonymous user With nonexistent username" duration="15" />
+<testCase name="POST /api/v1/users Anonymous user With unique and valid data" duration="148" />
+<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;email&apos;" duration="145" />
+<testCase name="POST /api/v1/users Anonymous user With duplicated &apos;username&apos;" duration="123" />
+<testCase name="POST /api/v1/users Anonymous user Default user With unique and valid data" duration="96" />
 </file>
 <file path="tests/integration/api/v1/sessions/delete.test.js">
-<testCase name="DELETE /api/v1/sessions Default user With nonexistent session" duration="16" />
-<testCase name="DELETE /api/v1/sessions Default user With expired session" duration="99" />
-<testCase name="DELETE /api/v1/sessions Default user With valid session" duration="123" />
+<testCase name="DELETE /api/v1/sessions Default user With nonexistent session" duration="74" />
+<testCase name="DELETE /api/v1/sessions Default user With expired session" duration="75" />
+<testCase name="DELETE /api/v1/sessions Default user With valid session" duration="106" />
 </file>
-<file path="tests/integration/infra/email.test.js">
-<testCase name="infra/email.js send()" duration="116" />
+<file path="tests/integration/api/v1/sessions/post.test.js">
+<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; but corrent &apos;password&apos;" duration="62" />
+<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; but incorrent &apos;password&apos;" duration="57" />
+<testCase name="POST /api/v1/users Anonymous user With incorrect &apos;email&apos; and incorrent &apos;password&apos;" duration="65" />
+<testCase name="POST /api/v1/users Anonymous user With correct &apos;email&apos; and corrent &apos;password&apos;" duration="166" />
+</file>
+<file path="tests/integration/_use-cases/registration-flow.test.js">
+<testCase name="Use case: Registration Flow (all successful) Create user account" duration="90" />
+<testCase name="Use case: Registration Flow (all successful) Receive activation email" duration="25" />
+<testCase name="Use case: Registration Flow (all successful) Activate account" duration="66" />
+<testCase name="Use case: Registration Flow (all successful) Login" duration="26" />
+<testCase name="Use case: Registration Flow (all successful) Get user information" duration="58" />
 </file>
 <file path="tests/integration/api/v1/migrations/post.test.js">
-<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the first time" duration="54" />
-<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the second time" duration="66" />
+<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the first time" duration="137" />
+<testCase name="POST /api/v1/migrations Anonymous user Running pending migrations For the second time" duration="25" />
 </file>
-<file path="tests/integration/api/v1/migrations/get.test.js">
-<testCase name="GET /api/v1/migrations Anonymous user Retrieving pending migrations" duration="27" />
+<file path="tests/integration/infra/email.test.js">
+<testCase name="infra/email.js send()" duration="111" />
 </file>
 <file path="tests/integration/api/v1/status/get.test.js">
 <testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="33" />
 </file>
 <file path="tests/integration/api/v1/status/post.test.js">
-<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="5" />
+<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="7" />
+</file>
+<file path="tests/integration/api/v1/migrations/get.test.js">
+<testCase name="GET /api/v1/migrations Anonymous user Retrieving pending migrations" duration="30" />
+</file>
+<file path="tests/integration/api/v1/users/[username]/patch.test.js">
+<testCase name="PATCH /api/v1/users/[username] Anonymous user With unique &apos;username&apos;" duration="54" />
+<testCase name="PATCH /api/v1/users/[username] Default user With nonexistent username" duration="114" />
+<testCase name="PATCH /api/v1/users/[username] Default user With duplicated &apos;username&apos;" duration="202" />
+<testCase name="PATCH /api/v1/users/[username] Default user With `user2` targeting `usera`" duration="127" />
+<testCase name="PATCH /api/v1/users/[username] Default user With duplicated &apos;email&apos;" duration="162" />
+<testCase name="PATCH /api/v1/users/[username] Default user With unique &apos;username&apos;" duration="175" />
+<testCase name="PATCH /api/v1/users/[username] Default user With unique &apos;email&apos;" duration="127" />
+<testCase name="PATCH /api/v1/users/[username] Default user With new &apos;password&apos;" duration="201" />
+</file>
+<file path="tests/integration/api/v1/users/[username]/get.test.js">
+<testCase name="GET /api/v1/users/[username] Anonymous user With exact case match" duration="83" />
+<testCase name="GET /api/v1/users/[username] Anonymous user With case mismatch" duration="58" />
+<testCase name="GET /api/v1/users/[username] Anonymous user With nonexistent username" duration="16" />
 </file>
 </testExecutions>
