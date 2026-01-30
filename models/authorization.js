@@ -16,7 +16,75 @@ function can(user, feature, resource) {
   return authorized;
 }
 
+function filterOutput(user, feature, resource) {
+  if (["create:user", "read:user", "read:user:self"].includes(feature)) {
+    let output = {
+      id: resource.id,
+      username: resource.username,
+      features: resource.features,
+      created_at: resource.created_at,
+      updated_at: resource.updated_at,
+    };
+
+    if (feature === "read:user:self") {
+      if (user.id === resource.id) {
+        output.email = resource.email;
+      }
+    }
+
+    return output;
+  }
+
+  // if (feature === "read:user") {
+  //   return {
+  //     id: resource.id,
+  //     username: resource.username,
+  //     features: resource.features,
+  //     created_at: resource.created_at,
+  //     updated_at: resource.updated_at,
+  //   };
+  // }
+
+  // if (feature === "read:user:self") {
+  //   if (user.id === resource.id) {
+  //     return {
+  //       id: resource.id,
+  //       username: resource.username,
+  //       features: resource.features,
+  //       email: resource.email,
+  //       created_at: resource.created_at,
+  //       updated_at: resource.updated_at,
+  //     };
+  //   }
+  // }
+
+  if (feature === "read:session") {
+    if (user.id === resource.user_id) {
+      return {
+        id: resource.id,
+        token: resource.token,
+        user_id: resource.user_id,
+        created_at: resource.created_at,
+        expires_at: resource.expires_at,
+        updated_at: resource.updated_at,
+      };
+    }
+  }
+
+  if (feature === "read:activation_token") {
+    return {
+      id: resource.id,
+      user_id: resource.user_id,
+      used_at: resource.used_at,
+      created_at: resource.created_at,
+      expires_at: resource.expires_at,
+      updated_at: resource.updated_at,
+    };
+  }
+}
+
 const authorization = {
   can,
+  filterOutput,
 };
 export default authorization;

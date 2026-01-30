@@ -38,8 +38,6 @@ describe("Use case: Registration Flow (all successful)", () => {
     expect(createUserResponseBody).toEqual({
       id: createUserResponseBody.id,
       username: createUserResponseBody.username,
-      email: createUserResponseBody.email,
-      password: createUserResponseBody.password,
       features: ["read:activation_token"],
       created_at: createUserResponseBody.created_at,
       updated_at: createUserResponseBody.updated_at,
@@ -127,6 +125,5 @@ describe("Use case: Registration Flow (all successful)", () => {
     const responseBody = await response.json();
     expect(responseBody.id).toBe(createUserResponseBody.id);
     expect(responseBody.username).toBe(createUserResponseBody.username);
-    expect(responseBody.email).toBe(createUserResponseBody.email);
   });
 });
