@@ -1,5 +1,9 @@
 <testExecutions version="1">
-<file path="tests/integration/infra/email.test.js">
-<testCase name="infra/email.js send()" duration="131" />
+<file path="tests/integration/api/v1/status/get.test.js">
+<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="54" />
+<testCase name="GET /api/v1/status Privileged user Retrieving current system status" duration="182" />
+</file>
+<file path="tests/integration/api/v1/status/post.test.js">
+<testCase name="GET /api/v1/status Anonymous user Retrieving current system status" duration="6" />
 </file>
 </testExecutions>
