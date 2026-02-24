@@ -98,12 +98,13 @@ export class ForbiddenError extends Error {
 }
 
 export class ServiceError extends Error {
-  constructor({ cause, message }) {
+  constructor({ cause, message, action, context }) {
     super(message || "Serviço indisponível no momento.", {
       cause,
     });
     this.name = "ServiceError";
-    this.action = "Verifique se o serviço está disponível no momento";
+    this.action = action || "Verifique se o serviço está disponível no momento";
+    this.context = context;
     this.statusCode = 503;
   }
 
